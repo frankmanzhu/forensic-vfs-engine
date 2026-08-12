@@ -63,7 +63,7 @@ hfsplus   = { version = "0.2.1", package = "hfsplus-forensic", features = ["vfs"
 fat       = { version = "0.1.1", package = "fat-core", features = ["vfs"] }
 btrfs-core   = { version = "0.1.2", features = ["vfs"] }
 ufs          = { version = "0.1.2", package = "ufs-core", features = ["vfs"] }
-udf-forensic = { version = "0.2.1", features = ["vfs"] }
+udf-forensic = { path = "../udf-forensic", version = "0.2.7", features = ["vfs"] } # local patch: UDF symlink read_link (frankmanzhu fork)
 # ZFS. Published: zfs-forensic-core 0.1.1 is the first release carrying the `vfs`
 # adapter feature (release-plz cut it as a patch, not the 0.2.0 originally
 # assumed), so the floor is 0.1.1 — 0.1.0 has no `vfs` feature and would fail to

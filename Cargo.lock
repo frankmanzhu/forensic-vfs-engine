@@ -1720,12 +1720,11 @@ checksum = "b6f5e870be6c3b371b77fe0ee0bafb859fa4964b4404c27de1d380043c4dda20"
 
 [[package]]
 name = "udf-forensic"
-version = "0.2.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "68aea05386bb66b25769351fff7dc8f1524abb997a739f0d7607125c499d7398"
+version = "0.2.7"
 dependencies = [
  "forensic-vfs",
  "forensicnomicon",
+ "safe-read 0.1.0",
 ]
 
 [[package]]
