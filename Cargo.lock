@@ -1198,9 +1198,7 @@ dependencies = [
 
 [[package]]
 name = "ntfs-core"
-version = "0.9.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "21dd9d1962efbe385a681014859614b1a83acee719a3d1d4c73a022e0caa83ea"
+version = "0.9.6"
 dependencies = [
  "bitflags",
  "chrono",

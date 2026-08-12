@@ -54,7 +54,7 @@ aff4  = { version = "0.2" }
 apm = { version = "0.6", package = "apm-partition-core" }
 
 # Filesystem readers — each needs its `vfs` adapter feature.
-ntfs-core = { version = "0.9.1", features = ["vfs"] }
+ntfs-core = { path = "../ntfs-forensic/core", version = "0.9.6", features = ["vfs"] } # local patch: reparse-point symlink read_link (frankmanzhu fork)
 ext4fs    = { version = "0.2.2", package = "ext4fs-core", features = ["vfs"] }
 xfs       = { version = "0.1.1", package = "xfs-core", features = ["vfs"] }
 iso       = { version = "0.7.1", package = "iso9660-forensic", features = ["vfs"] }
