@@ -57,7 +57,9 @@ apm = { version = "0.6", package = "apm-partition-core" }
 ntfs-core = { path = "../ntfs-forensic/core", version = "0.9.6", features = ["vfs"] } # local patch: reparse-point symlink read_link (frankmanzhu fork)
 ext4fs    = { version = "0.2.2", package = "ext4fs-core", features = ["vfs"] }
 xfs       = { version = "0.1.1", package = "xfs-core", features = ["vfs"] }
-iso       = { version = "0.7.1", package = "iso9660-forensic", features = ["vfs"] }
+# Pinned fork: hybrid ISO session validation fix. Keep the revision immutable so
+# clean consumers do not need a sibling iso9660-forensic checkout.
+iso       = { git = "https://github.com/frankmanzhu/iso9660-forensic", rev = "2e8619d", version = "0.8.0", package = "iso9660-forensic", features = ["vfs"] }
 apfs-core = { version = "0.2.1", features = ["vfs"] }
 hfsplus   = { version = "0.2.1", package = "hfsplus-forensic", features = ["vfs"] }
 fat       = { version = "0.1.1", package = "fat-core", features = ["vfs"] }
