@@ -54,7 +54,7 @@ aff4  = { version = "0.2" }
 apm = { version = "0.6", package = "apm-partition-core" }
 
 # Filesystem readers — each needs its `vfs` adapter feature.
-ntfs-core = { path = "../ntfs-forensic/core", version = "0.9.6", features = ["vfs"] } # local patch: reparse-point symlink read_link (frankmanzhu fork)
+ntfs-core = { version = "0.9.7", features = ["vfs"] }
 ext4fs    = { version = "0.2.2", package = "ext4fs-core", features = ["vfs"] }
 xfs       = { version = "0.1.1", package = "xfs-core", features = ["vfs"] }
 # Pinned fork: hybrid ISO session validation fix. Keep the revision immutable so
@@ -65,7 +65,7 @@ hfsplus   = { version = "0.2.1", package = "hfsplus-forensic", features = ["vfs"
 fat       = { version = "0.1.1", package = "fat-core", features = ["vfs"] }
 btrfs-core   = { version = "0.1.2", features = ["vfs"] }
 ufs          = { version = "0.1.2", package = "ufs-core", features = ["vfs"] }
-udf-forensic = { path = "../udf-forensic", version = "0.2.7", features = ["vfs"] } # local patch: UDF symlink read_link (frankmanzhu fork)
+udf-forensic = { version = "0.2.8", features = ["vfs"] }
 # ZFS. Published: zfs-forensic-core 0.1.1 is the first release carrying the `vfs`
 # adapter feature (release-plz cut it as a patch, not the 0.2.0 originally
 # assumed), so the floor is 0.1.1 — 0.1.0 has no `vfs` feature and would fail to
