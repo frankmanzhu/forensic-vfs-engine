@@ -24,6 +24,7 @@ use forensic_vfs_resolver::SourceOpen;
 use state_history_forensic::epoch::EpochTag;
 
 mod containerfs;
+mod iso_vfs;
 
 /// One resolved piece of evidence: its locator plus the mounted filesystem, when
 /// the engine detected one (`None` for a source no registered prober recognized).
@@ -510,8 +511,9 @@ impl FileSystemOpen for XfsProbe {
 }
 
 /// ISO 9660 filesystem prober: recognizes the Primary Volume Descriptor and
-/// mounts `iso::vfs::IsoVfs`. The PVD's `CD001` standard identifier sits at byte
-/// offset 32769 (LBA 16, +1), so this needs the enlarged sniff window.
+/// mounts the engine-local ISO adapter. The PVD's `CD001` standard identifier
+/// sits at byte offset 32769 (LBA 16, +1), so this needs the enlarged sniff
+/// window.
 struct Iso9660Probe;
 
 impl FileSystemOpen for Iso9660Probe {
@@ -534,7 +536,7 @@ impl FileSystemOpen for Iso9660Probe {
     fn open(&self, src: DynSource) -> VfsResult<DynFs> {
         let len = src.len();
         let cursor = SourceCursor::new(src, 0, len);
-        let fs = iso::vfs::IsoVfs::open(cursor).map_err(|e| VfsError::Decode {
+        let fs = iso_vfs::IsoVfs::open(cursor).map_err(|e| VfsError::Decode {
             layer: "iso9660",
             offset: 0,
             detail: e.to_string(),

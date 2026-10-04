@@ -57,9 +57,10 @@ apm = { version = "0.6", package = "apm-partition-core" }
 ntfs-core = { version = "0.9.7", features = ["vfs"] }
 ext4fs    = { version = "0.2.2", package = "ext4fs-core", features = ["vfs"] }
 xfs       = { version = "0.1.1", package = "xfs-core", features = ["vfs"] }
-# Pinned fork: hybrid ISO session validation fix. Keep the revision immutable so
-# clean consumers do not need a sibling iso9660-forensic checkout.
-iso       = { git = "https://github.com/frankmanzhu/iso9660-forensic", rev = "2e8619d", version = "0.8.0", package = "iso9660-forensic", features = ["vfs"] }
+# The hybrid-session fix is merged upstream but is not in the published 0.8.0
+# release yet. Pin the upstream commit until the next release; keep its 0.9 VFS
+# feature disabled and adapt the public reader API to this engine's 0.7 trait.
+iso       = { git = "https://github.com/SecurityRonin/iso9660-forensic", rev = "2a2ab27", version = "0.8.0", package = "iso9660-forensic" }
 apfs-core = { version = "0.2.1", features = ["vfs"] }
 hfsplus   = { version = "0.2.1", package = "hfsplus-forensic", features = ["vfs"] }
 fat       = { version = "0.1.1", package = "fat-core", features = ["vfs"] }
@@ -105,6 +106,7 @@ veracrypt = { version = "0.2.2", package = "veracrypt-core", features = ["vfs"] 
 
 [dev-dependencies]
 tempfile = "3"
+hadris-iso = "1"
 # Independent oracle for the archive/logical fallback tests: build a fixture
 # archive with a *different* implementation than the one under test (archive-core),
 # per Doer-Checker. Pure-Rust, low-MSRV; already in the dependency graph via
