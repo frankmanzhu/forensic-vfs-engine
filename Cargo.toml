@@ -48,7 +48,7 @@ qcow2 = { version = "0.3", package = "qcow2-core" }
 vmdk  = { version = "0.8", package = "vmdk-core" }
 vhdx  = { version = "0.3", package = "vhdx-core" }
 dmg   = { version = "0.1", package = "dmg-core" }
-aff4  = { version = "0.2" }
+aff4  = { version = "0.3.0" }
 
 # Volume-system readers (MBR + GPT are pure in-crate parsers; APM is external).
 apm = { version = "0.6", package = "apm-partition-core" }
@@ -117,7 +117,7 @@ tar = "0.4"
 # so the tests need no committed binary fixtures. Both mint with independent
 # encoders (flate2 / zip), an oracle distinct from the readers under test.
 ad1 = { version = "0.1.1", package = "ad1-core", features = ["testfix"] }
-aff4 = { version = "0.2", features = ["test-helpers"] }
+aff4 = { version = "0.3.0", features = ["test-helpers"] }
 # Independent oracle for the plain-zip archive fallback test: write a plain zip
 # with the `zip` crate (a different implementation than archive-core, which reads
 # it back). `default-features = false` keeps the locked graph and vet surface
